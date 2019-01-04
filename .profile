@@ -24,11 +24,6 @@ PATH="$HOME/.local/bin:$PATH"
 #    PATH="$HOME/bin:$PATH"
 #fi
 
-# set PATH to include texlive
-#Set default terminal
-#gsettings set org.gnome.desktop.default-applications.terminal exec 'gnome-terminal'
-#gsettings set org.gnome.desktop.default-applications.terminal exec 'terminator'
-
 if [ -n "$DISPLAY" ]
 then
     xset -b
