@@ -1,3 +1,34 @@
+set nocompatible
+
+" Vundle (plugin manager)
+" git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+" vim -c PluginInstall
+
+" init vundle
+set rtp+=~/.vim/bundle/Vundle.vim
+
+call vundle#begin()
+Plugin 'VundleVim/Vundle.vim'
+" start plugin includes
+Plugin 'vim-airline/vim-airline'
+Plugin 'vim-airline/vim-airline-themes'
+Plugin 'scrooloose/nerdtree'
+Plugin 'flazz/vim-colorschemes'
+" end plugin includes
+call vundle#end()            " required
+
+" airline settings
+let g:airline_powerline_fonts=1
+let g:airline#extensions#tabline#enabled=1
+let g:airline#extensions#tabline#show_buffers=1
+let g:airline_theme='simple'
+set laststatus=2
+
+" nerdtree settings
+let g:NerdTreeQuitOnOpen=0
+let NERDTreeIgnore = ['\.pyc$', '^__pycache__$', '^node_modules']
+nnoremap <leader>nt :NERDTreeToggle<cr>
+
 " Example vimrc file built for PEP8 style guidlines
 " USE: copy this file to the following location: ~/.vimrc 
 
@@ -30,14 +61,16 @@ set softtabstop=4
 " these tab and indentation settings, use :retab
 
 " Make sure syntax is on
-syntax enable
+"syntax enable
 
 " Prevent .swp files being created and ~backup files
 set noswapfile
 set nobackup
 
+set t_Co=256
+
 " Set colorscheme
-colorscheme ron
+colorscheme jared
 " some other appealing colorschemes:
 "   blue
 "   desert
@@ -82,7 +115,8 @@ imap <F3> <C-R>=strftime("%Y-%m-%d")<CR>
 
 
 " http://learnvimscriptthehardway.stevelosh.com/
-" The trick to relearning a mapping is to force yourself to use it by disabling the old key(s)
+" The trick to relearning a mapping is to force
+" yourself to use it by disabling the old key(s)
 " inoremap <esc> <nop>
 inoremap jk <esc>
 
@@ -105,24 +139,6 @@ nnoremap <C-P> :set filetype=php<CR>
 
 " Vertical cursor line
 set colorcolumn=80
-
-" Vundle (plugin manager)
-" git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
-" vim -c PluginInstall
-
-" init vundle
-set rtp+=~/.vim/bundle/Vundle.vim
-
-call vundle#begin()
-Plugin 'VundleVim/Vundle.vim'
-" start plugin includes
-Plugin 'vim-airline/vim-airline'
-" end plugin includes
-call vundle#end()            " required
-
-let g:airline_powerline_fonts=1
-let g:airline#extensions#tabline#enabled=1
-let g:airline#extensions#tabline#show_buffers=1
-set laststatus=2
+highlight ColorColumn ctermbg=4
 
 
