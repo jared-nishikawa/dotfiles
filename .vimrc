@@ -14,6 +14,7 @@ Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
 Plugin 'scrooloose/nerdtree'
 Plugin 'flazz/vim-colorschemes'
+Plugin 'neovimhaskell/haskell-vim.git'
 " end plugin includes
 call vundle#end()            " required
 
@@ -25,9 +26,14 @@ let g:airline_theme='simple'
 set laststatus=2
 
 " nerdtree settings
+let mapleader = " "
 let g:NerdTreeQuitOnOpen=0
 let NERDTreeIgnore = ['\.pyc$', '^__pycache__$', '^node_modules']
-nnoremap <leader>nt :NERDTreeToggle<cr>
+nnoremap <leader>t :NERDTreeToggle<cr>
+nnoremap <silent> <leader>n :bn<CR>
+nnoremap <silent> <leader>p :bp<CR>
+nnoremap <silent> <leader>c <C-W><C-W>
+
 
 " Example vimrc file built for PEP8 style guidlines
 " USE: copy this file to the following location: ~/.vimrc 
@@ -61,7 +67,7 @@ set softtabstop=4
 " these tab and indentation settings, use :retab
 
 " Make sure syntax is on
-"syntax enable
+syntax enable
 
 " Prevent .swp files being created and ~backup files
 set noswapfile
@@ -70,7 +76,7 @@ set nobackup
 set t_Co=256
 
 " Set colorscheme
-colorscheme jared
+colorscheme ron
 " some other appealing colorschemes:
 "   blue
 "   desert
@@ -142,3 +148,10 @@ set colorcolumn=80
 highlight ColorColumn ctermbg=4
 
 
+" Uncomment the following to have Vim jump to the last position when
+" reopening a file
+if has("autocmd")
+   au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
+endif
+
+set hidden
