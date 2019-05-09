@@ -123,3 +123,16 @@ if ! shopt -oq posix; then
 fi
 
 export EDITOR='vim'
+
+git_prompt () {
+    g=$(git branch 2>/dev/null | grep '^*' | colrm 1 2)
+    if [ ! -z "$g" ]
+    then
+        echo :$g
+    fi
+}
+
+PS1="${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\[\033[01;31m\]\$(git_prompt)\[\033[00m\]\$ "
+
+
+
