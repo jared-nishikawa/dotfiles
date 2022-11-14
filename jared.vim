@@ -34,8 +34,7 @@ let s:black = "000000"
 if !has("gui_running")
 	let s:background = "303030"
 	let s:window = "5e5e5e"
-	" let s:line = "3a3a3a"
-	let s:line = "8a8a8a"
+	let s:line = "3a3a3a"
 	" let s:selection = "585858"
 	let s:selection = "c8c858"
 end
