@@ -29,14 +29,14 @@ let s:blue = "5ca5ff"
 let s:purple = "b294bb"
 let s:window = "4d5057"
 let s:black = "000000"
+let s:linenr = "55ffff"
 
 " Console 256 Colours
 if !has("gui_running")
 	let s:background = "303030"
 	let s:window = "5e5e5e"
 	let s:line = "3a3a3a"
-	" let s:selection = "585858"
-	let s:selection = "c8c858"
+	let s:selection = "585858"
 end
 
 hi clear
@@ -254,7 +254,7 @@ if has("gui_running") || &t_Co == 88 || &t_Co == 256
 
 	" Vim Highlighting
 	call <SID>X("Normal", s:foreground, s:background, "")
-	call <SID>X("LineNr", s:selection, "", "")
+	call <SID>X("LineNr", s:linenr, "", "")
 	call <SID>X("NonText", s:selection, "", "")
 	call <SID>X("SpecialKey", s:selection, "", "")
 	call <SID>X("Search", s:background, s:yellow, "")
